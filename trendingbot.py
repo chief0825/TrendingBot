@@ -240,10 +240,10 @@ def create_chromedriver(chrome_options, thread_index):
 
     def load_links(chrome_options):
         print(f'Thread-{thread_index} starting...')
-        # resolution = random.choice(resolutions)
-        # res = resolution.split('×')
-        # display = Display(visible=0, size=(res[0], res[1]))
-        # display.start()
+        resolution = random.choice(resolutions)
+        res = resolution.split('×')
+        display = Display(visible=0, size=(res[0], res[1]))
+        display.start()
         driver = get_chromedriver(chrome_options=chrome_options, use_proxy=proxy_enabled, user_agent=random.choice(userAgents))
         second = 0
         try:
@@ -284,7 +284,7 @@ def create_chromedriver(chrome_options, thread_index):
         except:
             pass
 
-        # display.stop()
+        display.stop()
 
         # time.sleep(get_random_wait_second(wait_range))
         print(f'Thread-{thread_index} finishing...')
