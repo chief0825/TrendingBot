@@ -311,10 +311,10 @@ def trendingbot_run():
         os.remove('./chromedriver.zip')
     default_chrome_options = get_chromeOptions()
     while True:
-        # for index in range(thread_limit):
-        #     threading.Thread(target=create_chromedriver, kwargs={"chrome_options": default_chrome_options, "thread_index": index}).start()
-        # time.sleep(60)
-        create_chromedriver(chrome_options=default_chrome_options, thread_index=0)
+        for index in range(thread_limit):
+            threading.Thread(target=create_chromedriver, kwargs={"chrome_options": default_chrome_options, "thread_index": index}).start()
+        time.sleep(60)
+        # create_chromedriver(chrome_options=default_chrome_options, thread_index=0)
 
 try:    #TrendingBot Start
     trendingbot_run()
