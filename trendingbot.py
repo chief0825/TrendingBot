@@ -228,7 +228,7 @@ def create_chromedriver(chrome_options, thread_index):
                     pass
                 print("add ext")
                 chrome_options.add_extension(pluginfile)
-                os.remove(pluginfile)
+                # os.remove(pluginfile)
             if user_agent:
                 chrome_options.add_argument('--user-agent=%s' % USER_AGENT)
             driver = uc.Chrome(options=chrome_options,executable_path=chrome_driver_path)
