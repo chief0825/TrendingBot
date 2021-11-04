@@ -218,15 +218,12 @@ def create_chromedriver(chrome_options, thread_index):
             time.sleep(get_random_wait_second(wait_range))
             if use_proxy:
                 pluginfile = './tmp/proxy_auth_plugin_{}.zip'.format(str(uuid.uuid4()))
-                print("Use proxy")
                 try:
                     with zipfile.ZipFile(pluginfile, 'w', zipfile.ZIP_DEFLATED) as zp:
                         zp.writestr("manifest.json", manifest_json)
                         zp.writestr("background.js", background_js)
-                except Exception as Err:
-                    print(Err)
+                except :
                     pass
-                print("add ext")
                 chrome_options.add_extension(pluginfile)
                 # os.remove(pluginfile)
             if user_agent:
