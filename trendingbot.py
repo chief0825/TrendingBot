@@ -25,7 +25,7 @@ proxy_enabled = True
 
 use_free_proxy = True
 
-thread_limit = 20
+thread_limit = 100
 
 wait_range = "10~20"    # Browser random wait second range 
 
@@ -260,17 +260,7 @@ def create_chromedriver(chrome_options, thread_index):
             
             randomchoice = random.randint(0,4)
             print(f'Random Choice => {randomchoice}')
-
-            if randomchoice == 0:
-                driver.find_element(By.CLASS_NAME, classes[0]).click()
-            elif randomchoice == 1:
-                driver.find_element(By.CLASS_NAME, classes[1]).click()
-            elif randomchoice == 2:
-                driver.find_element(By.CLASS_NAME, classes[2]).click()
-            elif randomchoice == 3:
-                driver.find_element(By.CLASS_NAME, classes[3]).click()
-            elif randomchoice == 4:
-                driver.find_element(By.CLASS_NAME, classes[4]).click()
+            driver.find_element(By.CLASS_NAME, classes[randomchoice]).click()
             #--------------Interaction End-----------------
         except:
             pass
@@ -314,7 +304,6 @@ def trendingbot_run():
         for index in range(thread_limit):
             threading.Thread(target=create_chromedriver, kwargs={"chrome_options": default_chrome_options, "thread_index": index}).start()
         time.sleep(60)
-        # create_chromedriver(chrome_options=default_chrome_options, thread_index=0)
 
 try:    #TrendingBot Start
     trendingbot_run()
