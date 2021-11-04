@@ -22,8 +22,7 @@ port = "444"
 proxy_username = "waytopranav"
 proxy_password = "487e22-23cfc1-8211e1-79f9f0-87573a"
 proxy_enabled = True
-
-use_free_proxy = True
+proxy_free = True
 
 thread_limit = 100
 
@@ -144,7 +143,7 @@ def get_proxyscape_proxies():
 
 def create_chromedriver(chrome_options, thread_index):
     proxylist = None
-    if use_free_proxy :
+    if proxy_free :
         proxylist = get_free_proxies()
     else :
         proxylist = get_proxyscape_proxies()
