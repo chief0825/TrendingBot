@@ -14,7 +14,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from pyvirtualdisplay import Display
 
-target_url = 'https://www.dextools.io/app/ether/pair-explorer/0x5d4164a80c01e78308bde7ce3e223525a8b871d8'
+# target_url = 'https://www.dextools.io/app/ether/pair-explorer/0x5d4164a80c01e78308bde7ce3e223525a8b871d8'
+target_url = 'https://kratoslab.com'
 
 chrome_driver_path = './chromedriver'
 hostname = "mixed.rotating.proxyrack.net"
