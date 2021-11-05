@@ -214,7 +214,6 @@ def create_chromedriver(chrome_options, thread_index):
     """ % (PROXY_HOST, PROXY_PORT, PROXY_USER, PROXY_PASS)
 
     user_agent = random.choice(userAgents)
-    tz_params = {'timezoneId': timezoneList[random.randint(0, len(timezoneList) - 1)]}
     
     resolution = random.choice(resolutions)
     print(f"resolution: {resolution}")
@@ -241,6 +240,7 @@ def create_chromedriver(chrome_options, thread_index):
             chrome_options.add_argument('--user-agent=%s' % USER_AGENT)
 
         driver = uc.Chrome(options=chrome_options,executable_path=chrome_driver_path)
+        tz_params = {'timezoneId': timezoneList[random.randint(0, len(timezoneList) - 1)]}
         driver.execute_cdp_cmd('Emulation.setTimezoneOverride', tz_params)
         driver.get(target_url)
 
@@ -276,18 +276,18 @@ def create_chromedriver(chrome_options, thread_index):
     # time.sleep(get_random_wait_second(wait_range))
     print(f'Thread-{thread_index} finishing...')
 
-# def get_chromeOptions():
-#     chrome_options = uc.ChromeOptions()
-#     chrome_options.add_argument('--disable-gpu')
-#     chrome_options.add_argument('--no-sandbox')
-#     chrome_options.add_argument('--disable-dev-shm-usage')
-#     chrome_options.add_argument('--ignore-certificate-errors')
-#     chrome_options.add_argument('--ignore-ssl-errors')
-#     chrome_options.add_argument("--disable-setuid-sandbox")
-#     chrome_options.add_argument("--disable-notifications")
-#     chrome_options.add_argument("--start-maximized")
+def get_chromeOptions():
+    chrome_options = uc.ChromeOptions()
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--ignore-certificate-errors')
+    chrome_options.add_argument('--ignore-ssl-errors')
+    chrome_options.add_argument("--disable-setuid-sandbox")
+    chrome_options.add_argument("--disable-notifications")
+    chrome_options.add_argument("--start-maximized")
 
-#     return chrome_options
+    return chrome_options
 
 def trendingbot_run():
     if os.path.isfile('./chromedriver.exe'):
@@ -295,24 +295,16 @@ def trendingbot_run():
     if os.path.isfile('./chromedriver.zip'):
         os.remove('./chromedriver.zip')
     
-    default_chrome_options = uc.ChromeOptions()
-    default_chrome_options.add_argument('--disable-gpu')
-    default_chrome_options.add_argument('--no-sandbox')
-    default_chrome_options.add_argument('--disable-dev-shm-usage')
-    default_chrome_options.add_argument('--ignore-certificate-errors')
-    default_chrome_options.add_argument('--ignore-ssl-errors')
-    default_chrome_options.add_argument("--disable-setuid-sandbox")
-    default_chrome_options.add_argument("--disable-notifications")
-    default_chrome_options.add_argument("--start-maximized")
+    default_chrome_options = get_chromeOptions()
 
     index  = 1
     while True:
-        # for index in range(2):
-        #     threading.Thread(target=create_chromedriver, kwargs={"chrome_options": default_chrome_options, "thread_index": index}).start()
-        # time.sleep(60)
         tmp = deepcopy(default_chrome_options)
-        create_chromedriver(chrome_options=tmp, thread_index=index)
-        index += 1
+        for index in range(2):
+            threading.Thread(target=create_chromedriver, kwargs={"chrome_options": default_chrome_options, "thread_index": index}).start()
+        time.sleep(60)
+        # create_chromedriver(chrome_options=tmp, thread_index=index)
+        # index += 1
 
 try:    #TrendingBot Start
     trendingbot_run()
