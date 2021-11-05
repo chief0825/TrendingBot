@@ -111,7 +111,7 @@ resolutions = ['360×640','1366×768','1920×1080','375×667','1440×900','768×
 classes = [
     'token-pairs-search-button',
     'hots-info',
-    'badge-info',
+    'exchange-specific-version',
     'fa-share-alt',
     'btn-salmon'
 ]
