@@ -155,7 +155,7 @@ def create_chromedriver(chrome_options, thread_index):
     PROXY_PASS = ""
     USER_AGENT = random.choice(userAgents)
 
-    print("*****************************************")
+    print("********************{}*********************".format(str(f'Thread-{thread_index} starting...')))
     print(f'Proxy => {PROXY_HOST}:{PROXY_PORT}')
 
     timezoneList = ['Africa/Abidjan', 'Africa/Accra', 'Africa/Addis_Ababa', 'Africa/Algiers', 'Africa/Asmara', 'Africa/Bamako', 'Africa/Bangui', 'Africa/Banjul', 'Africa/Bissau', 'Africa/Blantyre', 'Africa/Brazzaville', 'Africa/Bujumbura', 'Africa/Cairo', 'Africa/Casablanca', 'Africa/Ceuta', 'Africa/Conakry', 'Africa/Dakar', 'Africa/Dar_es_Salaam', 'Africa/Djibouti', 'Africa/Douala', 'Africa/El_Aaiun', 'Africa/Freetown', 'Africa/Gaborone', 'Africa/Harare', 'Africa/Johannesburg', 'Africa/Juba', 'Africa/Kampala', 'Africa/Khartoum', 'Africa/Kigali', 'Africa/Kinshasa', 'Africa/Lagos', 'Africa/Libreville', 'Africa/Lome', 'Africa/Luanda', 'Africa/Lubumbashi', 'Africa/Lusaka', 'Africa/Malabo', 'Africa/Maputo', 'Africa/Maseru', 'Africa/Mbabane', 'Africa/Mogadishu', 'Africa/Monrovia', 'Africa/Nairobi', 'Africa/Ndjamena', 'Africa/Niamey', 'Africa/Nouakchott', 'Africa/Ouagadougou', 'Africa/Porto-Novo', 'Africa/Sao_Tome', 'Africa/Tripoli', 'Africa/Tunis', 'Africa/Windhoek', 'America/Adak', 'America/Anchorage', 'America/Anguilla', 'America/Antigua', 'America/Araguaina', 'America/Argentina/Buenos_Aires', 'America/Argentina/Catamarca', 'America/Argentina/Cordoba', 'America/Argentina/Jujuy', 'America/Argentina/La_Rioja', 'America/Argentina/Mendoza', 'America/Argentina/Rio_Gallegos', 'America/Argentina/Salta', 'America/Argentina/San_Juan', 'America/Argentina/San_Luis', 'America/Argentina/Tucuman', 'America/Argentina/Ushuaia', 'America/Aruba', 'America/Asuncion', 'America/Atikokan', 'America/Bahia', 'America/Bahia_Banderas', 'America/Barbados', 'America/Belem', 'America/Belize', 'America/Blanc-Sablon', 'America/Boa_Vista', 'America/Bogota', 'America/Boise', 'America/Cambridge_Bay', 'America/Campo_Grande', 'America/Cancun', 'America/Caracas', 'America/Cayenne', 'America/Cayman', 'America/Chicago', 'America/Chihuahua', 'America/Costa_Rica', 'America/Creston', 'America/Cuiaba', 'America/Curacao', 'America/Danmarkshavn', 'America/Dawson', 'America/Dawson_Creek', 'America/Denver', 'America/Detroit', 'America/Dominica', 'America/Edmonton', 'America/Eirunepe', 'America/El_Salvador', 'America/Fortaleza', 'America/Glace_Bay', 'America/Godthab', 'America/Goose_Bay', 'America/Grand_Turk', 'America/Grenada', 'America/Guadeloupe', 'America/Guatemala', 'America/Guayaquil', 'America/Guyana', 'America/Halifax', 'America/Havana', 'America/Hermosillo', 'America/Indiana/Indianapolis', 'America/Indiana/Knox', 'America/Indiana/Marengo', 'America/Indiana/Petersburg', 'America/Indiana/Tell_City', 'America/Indiana/Vevay', 'America/Indiana/Vincennes', 'America/Indiana/Winamac', 'America/Inuvik', 'America/Iqaluit', 'America/Jamaica', 'America/Juneau', 'America/Kentucky/Louisville', 'America/Kentucky/Monticello', 'America/Kralendijk', 'America/La_Paz', 'America/Lima', 'America/Los_Angeles', 'America/Lower_Princes', 'America/Maceio', 'America/Managua', 'America/Manaus', 'America/Marigot', 'America/Martinique', 'America/Matamoros', 'America/Mazatlan', 'America/Menominee', 'America/Merida', 'America/Metlakatla', 'America/Mexico_City', 'America/Miquelon', 'America/Moncton', 'America/Monterrey', 'America/Montevideo', 'America/Montreal', 'America/Montserrat', 'America/Nassau', 'America/New_York', 'America/Nipigon', 'America/Nome', 'America/Noronha', 'America/North_Dakota/Beulah', 'America/North_Dakota/Center', 'America/North_Dakota/New_Salem', 'America/Ojinaga', 'America/Panama', 'America/Pangnirtung', 'America/Paramaribo', 'America/Phoenix', 'America/Port-au-Prince', 'America/Port_of_Spain', 'America/Porto_Velho', 'America/Puerto_Rico', 'America/Rainy_River', 'America/Rankin_Inlet', 'America/Recife', 'America/Regina', 'America/Resolute', 'America/Rio_Branco', 'America/Santa_Isabel', 'America/Santarem', 'America/Santiago', 'America/Santo_Domingo', 'America/Sao_Paulo', 'America/Scoresbysund', 'America/Shiprock', 'America/Sitka', 'America/St_Barthelemy', 'America/St_Johns', 'America/St_Kitts', 'America/St_Lucia', 'America/St_Thomas', 'America/St_Vincent', 'America/Swift_Current', 'America/Tegucigalpa', 'America/Thule', 'America/Thunder_Bay', 'America/Tijuana', 'America/Toronto', 'America/Tortola', 'America/Vancouver', 'America/Whitehorse', 'America/Winnipeg', 'America/Yakutat', 'America/Yellowknife', 'Antarctica/Casey', 'Antarctica/Davis', 'Antarctica/DumontDUrville', 'Antarctica/Macquarie', 'Antarctica/Mawson', 'Antarctica/McMurdo', 'Antarctica/Palmer', 'Antarctica/Rothera', 'Antarctica/South_Pole', 'Antarctica/Syowa', 'Antarctica/Troll', 'Antarctica/Vostok', 'Arctic/Longyearbyen', 'Asia/Aden', 'Asia/Almaty', 'Asia/Amman', 'Asia/Anadyr', 'Asia/Aqtau', 'Asia/Aqtobe', 'Asia/Ashgabat', 'Asia/Baghdad', 'Asia/Bahrain', 'Asia/Baku', 'Asia/Bangkok', 'Asia/Beirut', 'Asia/Bishkek', 'Asia/Brunei', 'Asia/Chita', 'Asia/Choibalsan', 'Asia/Chongqing', 'Asia/Colombo', 'Asia/Damascus', 'Asia/Dhaka', 'Asia/Dili', 'Asia/Dubai', 'Asia/Dushanbe', 'Asia/Gaza', 'Asia/Harbin', 'Asia/Hebron', 'Asia/Ho_Chi_Minh', 'Asia/Hong_Kong', 'Asia/Hovd', 'Asia/Irkutsk', 'Asia/Jakarta', 'Asia/Jayapura', 'Asia/Jerusalem', 'Asia/Kabul', 'Asia/Kamchatka', 'Asia/Karachi', 'Asia/Kashgar', 'Asia/Kathmandu', 'Asia/Katmandu', 'Asia/Khandyga', 'Asia/Kolkata', 'Asia/Krasnoyarsk', 'Asia/Kuala_Lumpur', 'Asia/Kuching', 'Asia/Kuwait', 'Asia/Macau', 'Asia/Magadan', 'Asia/Makassar', 'Asia/Manila', 'Asia/Muscat', 'Asia/Nicosia', 'Asia/Novokuznetsk', 'Asia/Novosibirsk', 'Asia/Omsk', 'Asia/Oral', 'Asia/Phnom_Penh', 'Asia/Pontianak', 'Asia/Pyongyang', 'Asia/Qatar', 'Asia/Qyzylorda', 'Asia/Rangoon', 'Asia/Riyadh', 'Asia/Sakhalin', 'Asia/Samarkand', 'Asia/Seoul', 'Asia/Shanghai', 'Asia/Singapore', 'Asia/Srednekolymsk', 'Asia/Taipei', 'Asia/Tashkent', 'Asia/Tbilisi', 'Asia/Tehran', 'Asia/Thimphu', 'Asia/Tokyo', 'Asia/Ulaanbaatar', 'Asia/Urumqi', 'Asia/Ust-Nera', 'Asia/Vientiane', 'Asia/Vladivostok', 'Asia/Yakutsk', 'Asia/Yekaterinburg', 'Asia/Yerevan', 'Atlantic/Azores', 'Atlantic/Bermuda', 'Atlantic/Canary', 'Atlantic/Cape_Verde', 'Atlantic/Faroe', 'Atlantic/Madeira', 'Atlantic/Reykjavik', 'Atlantic/South_Georgia', 'Atlantic/St_Helena', 'Atlantic/Stanley', 'Australia/Adelaide', 'Australia/Brisbane', 'Australia/Broken_Hill', 'Australia/Currie', 'Australia/Darwin', 'Australia/Eucla', 'Australia/Hobart', 'Australia/Lindeman', 'Australia/Lord_Howe', 'Australia/Melbourne', 'Australia/Perth', 'Australia/Sydney', 'Europe/Amsterdam', 'Europe/Andorra', 'Europe/Athens', 'Europe/Belgrade', 'Europe/Berlin', 'Europe/Bratislava', 'Europe/Brussels', 'Europe/Bucharest', 'Europe/Budapest', 'Europe/Busingen', 'Europe/Chisinau', 'Europe/Copenhagen', 'Europe/Dublin', 'Europe/Gibraltar', 'Europe/Guernsey', 'Europe/Helsinki', 'Europe/Isle_of_Man', 'Europe/Istanbul', 'Europe/Jersey', 'Europe/Kaliningrad', 'Europe/Kiev', 'Europe/Lisbon', 'Europe/Ljubljana', 'Europe/London', 'Europe/Luxembourg', 'Europe/Madrid', 'Europe/Malta', 'Europe/Mariehamn', 'Europe/Minsk', 'Europe/Monaco', 'Europe/Moscow', 'Europe/Oslo', 'Europe/Paris', 'Europe/Podgorica', 'Europe/Prague', 'Europe/Riga', 'Europe/Rome', 'Europe/Samara', 'Europe/San_Marino', 'Europe/Sarajevo', 'Europe/Simferopol', 'Europe/Skopje', 'Europe/Sofia', 'Europe/Stockholm', 'Europe/Tallinn', 'Europe/Tirane', 'Europe/Uzhgorod', 'Europe/Vaduz', 'Europe/Vatican', 'Europe/Vienna', 'Europe/Vilnius', 'Europe/Volgograd', 'Europe/Warsaw', 'Europe/Zagreb', 'Europe/Zaporozhye', 'Europe/Zurich', 'GMT', 'Indian/Antananarivo', 'Indian/Chagos', 'Indian/Christmas', 'Indian/Cocos', 'Indian/Comoro', 'Indian/Kerguelen', 'Indian/Mahe', 'Indian/Maldives', 'Indian/Mauritius', 'Indian/Mayotte', 'Indian/Reunion', 'Pacific/Apia', 'Pacific/Auckland', 'Pacific/Bougainville', 'Pacific/Chatham', 'Pacific/Chuuk', 'Pacific/Easter', 'Pacific/Efate', 'Pacific/Enderbury', 'Pacific/Fakaofo', 'Pacific/Fiji', 'Pacific/Funafuti', 'Pacific/Galapagos', 'Pacific/Gambier', 'Pacific/Guadalcanal', 'Pacific/Guam', 'Pacific/Honolulu', 'Pacific/Johnston', 'Pacific/Kiritimati', 'Pacific/Kosrae', 'Pacific/Kwajalein', 'Pacific/Majuro', 'Pacific/Marquesas', 'Pacific/Midway', 'Pacific/Nauru', 'Pacific/Niue', 'Pacific/Norfolk', 'Pacific/Noumea', 'Pacific/Pago_Pago', 'Pacific/Palau', 'Pacific/Pitcairn', 'Pacific/Pohnpei', 'Pacific/Ponape', 'Pacific/Port_Moresby', 'Pacific/Rarotonga', 'Pacific/Saipan', 'Pacific/Tahiti', 'Pacific/Tarawa', 'Pacific/Tongatapu', 'Pacific/Truk', 'Pacific/Wake', 'Pacific/Wallis']
@@ -212,95 +212,109 @@ def create_chromedriver(chrome_options, thread_index):
         );
     """ % (PROXY_HOST, PROXY_PORT, PROXY_USER, PROXY_PASS)
 
-    def get_chromedriver(chrome_options, use_proxy=True, user_agent=USER_AGENT):
-        # chrome_options.add_argument("--log-level=3") # comment that for debug but do it in production mode to enhance performance
-        try:
-            time.sleep(get_random_wait_second(wait_range))
-            if use_proxy:
-                pluginfile = './tmp/proxy_auth_plugin_{}.zip'.format(str(uuid.uuid4()))
-                try:
-                    with zipfile.ZipFile(pluginfile, 'w', zipfile.ZIP_DEFLATED) as zp:
-                        zp.writestr("manifest.json", manifest_json)
-                        zp.writestr("background.js", background_js)
-                except :
-                    pass
-                chrome_options.add_extension(pluginfile)
-                # os.remove(pluginfile)
-            if user_agent:
-                chrome_options.add_argument('--user-agent=%s' % USER_AGENT)
-            driver = uc.Chrome(options=chrome_options,executable_path=chrome_driver_path)
-            tz_params = {'timezoneId': timezoneList[random.randint(0, len(timezoneList) - 1)]}
-            driver.execute_cdp_cmd('Emulation.setTimezoneOverride', tz_params)
-            return driver
-        except :
-            pass
+    user_agent = random.choice(userAgents)
+    tz_params = {'timezoneId': timezoneList[random.randint(0, len(timezoneList) - 1)]}
+    
+    resolution = random.choice(resolutions)
+    print(f"resolution: {resolution}")
+    # res = resolution.split('×')
+    # display = Display(visible=0, size=(res[0], res[1]))
+    # display.start()
 
-    def load_links(chrome_options):
-        print(f'Thread-{thread_index} starting...')
-        resolution = random.choice(resolutions)
-        res = resolution.split('×')
-        display = Display(visible=0, size=(res[0], res[1]))
-        display.start()
-        driver = get_chromedriver(chrome_options=chrome_options, use_proxy=proxy_enabled, user_agent=random.choice(userAgents))
-        second = 0
-        try:
-            driver.get(target_url)
-            print(driver.title)
+    pluginfile = None
 
-            wait = WebDriverWait(driver, 10)
+    try:
+        time.sleep(get_random_wait_second(wait_range))
+        # chrome_options init
+        chrome_options.__init__()
+        chrome_options.add_argument("start-maximized")
+        chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        chrome_options.add_argument("--disable-blink-features=AutomationControlled")
 
-            #--------------Interaction Begin-----------------
-            # Wait random time to click button
-            second = get_random_wait_second(wait_range)
-            print(f'Wait {second}s...')
-            time.sleep(second)
-            
-            randomchoice = random.randint(0,4)
-            print(f'Random Choice => {randomchoice}')
-            driver.find_element(By.CLASS_NAME, classes[randomchoice]).click()
-            #--------------Interaction End-----------------
-        except:
-            pass
+        chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--disable-dev-shm-usage')
+        chrome_options.add_argument('--ignore-certificate-errors')
+        chrome_options.add_argument('--ignore-ssl-errors')
+        chrome_options.add_argument("--disable-setuid-sandbox")
+        chrome_options.add_argument("--disable-notifications")
+        chrome_options.add_argument("--start-maximized")
+
+        if proxy_enabled:
+            pluginfile = './tmp/proxy_auth_plugin_{}.zip'.format(str(uuid.uuid4()))
+            try:
+                with zipfile.ZipFile(pluginfile, 'w', zipfile.ZIP_DEFLATED) as zp:
+                    zp.writestr("manifest.json", manifest_json)
+                    zp.writestr("background.js", background_js)
+            except :
+                pass
+            chrome_options.add_extension(pluginfile)
+
+        if user_agent:
+            chrome_options.add_argument('--user-agent=%s' % USER_AGENT)
+
+        driver = uc.Chrome(options=chrome_options,executable_path=chrome_driver_path)
+        driver.execute_cdp_cmd('Emulation.setTimezoneOverride', tz_params)        
+        driver.get(target_url)
+
+        print(f"Title: {driver.title}")
+
+        wait = WebDriverWait(driver, 10)
+
+        #--------------Interaction Begin-----------------
+        # Wait random time to click button
+        second = get_random_wait_second(wait_range)
+        print(f'Wait {second}s...')
+        time.sleep(second)
+        
+        randomClick = random.randint(0,4)
+        print(f'Random Click: {classes[randomClick]}')
+        driver.find_element(By.CLASS_NAME, classes[randomClick]).click()
+        #--------------Interaction End-----------------
 
         second = get_random_wait_second(wait_range)
         print(f'Leave after {second}s...')
         time.sleep(second)
-        
-        try:
-            driver.quit()
-        except:
-            pass
 
-        display.stop()
+        driver.quit()
 
-        # time.sleep(get_random_wait_second(wait_range))
-        print(f'Thread-{thread_index} finishing...')
-        
-    load_links(chrome_options)
+    except:
+        pass
 
-def get_chromeOptions():
-    chrome_options = uc.ChromeOptions()
-    chrome_options.add_argument('--disable-gpu')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    chrome_options.add_argument('--ignore-certificate-errors')
-    chrome_options.add_argument('--ignore-ssl-errors')
-    chrome_options.add_argument("--disable-setuid-sandbox")
-    chrome_options.add_argument("--disable-notifications")
-    chrome_options.add_argument("--start-maximized")
+    if os.path.isfile(pluginfile):
+        os.remove(pluginfile)
 
-    return chrome_options
+    # display.stop()
+
+    # time.sleep(get_random_wait_second(wait_range))
+    print(f'Thread-{thread_index} finishing...')
+
+# def get_chromeOptions():
+#     chrome_options = uc.ChromeOptions()
+#     chrome_options.add_argument('--disable-gpu')
+#     chrome_options.add_argument('--no-sandbox')
+#     chrome_options.add_argument('--disable-dev-shm-usage')
+#     chrome_options.add_argument('--ignore-certificate-errors')
+#     chrome_options.add_argument('--ignore-ssl-errors')
+#     chrome_options.add_argument("--disable-setuid-sandbox")
+#     chrome_options.add_argument("--disable-notifications")
+#     chrome_options.add_argument("--start-maximized")
+
+#     return chrome_options
 
 def trendingbot_run():
     if os.path.isfile('./chromedriver.exe'):
         os.remove('./chromedriver.exe')
     if os.path.isfile('./chromedriver.zip'):
         os.remove('./chromedriver.zip')
-    default_chrome_options = get_chromeOptions()
+    default_chrome_options = uc.ChromeOptions()
+    index  = 1
     while True:
-        for index in range(thread_limit):
-            threading.Thread(target=create_chromedriver, kwargs={"chrome_options": default_chrome_options, "thread_index": index}).start()
-        time.sleep(60)
+        # for index in range(2):
+        #     threading.Thread(target=create_chromedriver, kwargs={"chrome_options": default_chrome_options, "thread_index": index}).start()
+        # time.sleep(60)
+        create_chromedriver(chrome_options=default_chrome_options, thread_index=index)
+        index += 1
 
 try:    #TrendingBot Start
     trendingbot_run()
